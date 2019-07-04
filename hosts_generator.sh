@@ -5,6 +5,8 @@
 # Date: 2019-07-04
 ###############################################################################
 
+cp /etc/hosts /etc/hosts.$(date +%s)
+
 baseip=${1:-192.168.100}
 domain=${2:-example.com}
 for ((i=1; i<250; ++i)); do
@@ -15,5 +17,5 @@ done
 cat << EOF >> /etc/hosts1
 ${baseip}.250 master.{domain} master
 ${baseip}.251 vmhost.{domain} vmhost
-${baseip}.251 router.{domain} router nat
+${baseip}.254 router.{domain} router nat
 EOF
