@@ -21,7 +21,7 @@ hostnamectl set-hostname ${fqdn}
 
 # Setup static ip and default route via router.<domainname>
 ip=$(grep ${fqdn} /etc/hosts|cut -d" " -f1)/${nw#*/}
-router=${grep router /etc/hosts|cut -d" " -f1}
+router=$(grep router /etc/hosts|cut -d" " -f1)
 
 netplan=$(/etc/netplan/*-cloud-init.yaml)
 cp ${netplan} ${netplan}.$(date +%s) || exit 127
