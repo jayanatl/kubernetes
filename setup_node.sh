@@ -21,7 +21,7 @@ hostnamectl set-hostname ${fqdn}
 
 # Setup static ip and default route via router.<domainname>
 ip=$(grep ${fqdn} /etc/hosts|cut -d" " -f1)/${nw#*/}
-router=$(grep router /etc/hosts|cut -d" " -f1)
+router=$(grep -w router /etc/hosts|cut -d" " -f1)
 
 netplan=$(ls /etc/netplan/*-cloud-init.yaml)
 cp ${netplan} ${netplan}.$(date +%s) || exit 127
@@ -54,4 +54,4 @@ cp basic_check.sh /etc/update-motd.d/00-basic-check
 chmod a+x /etc/update-motd.d/00-basic-check
 
 # Reboot server
-reboot
+reboot && exit
