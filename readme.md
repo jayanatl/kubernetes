@@ -15,4 +15,5 @@ This repo contains scripts to setup nodes for kubernetes exercise.
 2. git clone https://github.com/jayanatl/kubernetes.git
 3. cd kubernetes
 4. bash setup_node.sh [node<x>.<domainname.com>]
+
 NOTE: if no arguments are given node will be named as node<last octet of ip>.example.com
