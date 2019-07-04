@@ -15,7 +15,7 @@ done
 
 # Static entries
 cat << EOF >> /etc/hosts1
-${baseip}.250 master.{domain} master
-${baseip}.251 vmhost.{domain} vmhost
-${baseip}.254 router.{domain} router nat
+${baseip}.250 master.${domain} master
+${baseip}.251 vmhost.${domain} vmhost
+${baseip}.254 router.${domain} router nat
 EOF
