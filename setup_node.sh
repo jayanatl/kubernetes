@@ -23,7 +23,7 @@ hostnamectl set-hostname ${fqdn}
 ip=$(grep ${fqdn} /etc/hosts|cut -d" " -f1)/${nw#*/}
 router=$(grep router /etc/hosts|cut -d" " -f1)
 
-netplan=$(/etc/netplan/*-cloud-init.yaml)
+netplan=$(ls /etc/netplan/*-cloud-init.yaml)
 cp ${netplan} ${netplan}.$(date +%s) || exit 127
 
 cat << EOF > ${netplan}
@@ -50,8 +50,8 @@ netplan apply
 # Setup basic_checks
 mv /etc/update-motd.d /etc/update-motd.d.$(date +%s) || exit 127
 mkdir /etc/update-motd.d
-cp basic_check.sh /etc/update-motd.d/basic_check
-chmod a+x /etc/update-motd.d/basic_check
+cp basic_check.sh /etc/update-motd.d/00-basic-check
+chmod a+x /etc/update-motd.d/00-basic-check
 
 # Reboot server
-# reboot
+reboot
