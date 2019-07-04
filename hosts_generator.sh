@@ -5,7 +5,7 @@
 # Date: 2019-07-04
 ###############################################################################
 hosts="/etc/hosts1"
-cp ${hosts} ${hosts}.$(date +%s)
+cp ${hosts} ${hosts}.$(date +%s) || exit 127
 
 baseip=${1:-192.168.100}
 domain=${2:-example.com}
