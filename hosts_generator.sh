@@ -10,7 +10,7 @@ cp /etc/hosts /etc/hosts.$(date +%s)
 baseip=${1:-192.168.100}
 domain=${2:-example.com}
 for ((i=1; i<250; ++i)); do
-    echo ${baseip}.${i} node${i}.{domain} node${i} >> /etc/hosts1
+    echo ${baseip}.${i} node${i}.${domain} node${i} >> /etc/hosts1
 done
 
 # Static entries
