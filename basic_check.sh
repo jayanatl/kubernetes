@@ -15,7 +15,8 @@ ping_test() {
 
 # Main
 echo ${hl}
-echo -e "HOSTNAME: \e[1;36m${HOSTNAME}\e[0m"
+echo -e "HOSTNAME : \e[1;36m${HOSTNAME}\e[0m"
+echo -e "IPADDRESS: \e[1;36m$(ip -4 a s enp0s3|awk '/inet/{print $2}')\e[0m"
 echo ${hl}| tr '#' '-'
 
 echo "Testing network connectivity"
