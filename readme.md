@@ -11,9 +11,12 @@ This repo contains scripts to setup nodes for kubernetes exercise.
 5. Configure it as a NAT gateway for your hostonly network (last octet of ip should be 254)
 
 ## Executing the script
-1. Spinup an ubuntu 18 server VM and login as root
+1. Spinup an ubuntu 18 server VM with one network interface which is connected to NAT network and login as root
 2. git clone https://github.com/jayanatl/kubernetes.git
 3. cd kubernetes
-4. bash setup_node.sh [node<x>.<domainname.com>]
+4. Change network interface from NAT to hostonly network
+5. Switch to root: sudo su
+6. Set network ip from hostonly network: netplan apply
+7. bash setup_node.sh [node<x>.<domainname.com>]
 
-NOTE: if no arguments are given node will be named as node<last octet of ip>.example.com
+NOTE: If no arguments are given node will be named as node<last octet of ip>.example.com
