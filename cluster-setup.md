@@ -19,7 +19,6 @@ check on switching context
 check on connecting to cluster from laptop/ws directly instead of going through master
 check on user and RBAC
 
-```
 ### Important tips
 - format json !%jq .
 - format yaml: Use python if needed
